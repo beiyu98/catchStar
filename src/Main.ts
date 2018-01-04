@@ -2,9 +2,9 @@ class Main {
 
     private gameInfo: Background;
 
-    private hero:Role;
+    private hero: Laya.Sprite;
 
-    private roleBox:Laya.Sprite;
+    private roleBox: Laya.Sprite;
 
     constructor() {
         Laya.MiniAdpter.init();
@@ -12,27 +12,38 @@ class Main {
         Laya.stage.scaleMode = 'showall';
         Laya.stage.alignH = 'center';
         Laya.stage.screenMode = 'horizontal';
-        Laya.loader.load('res/atlas/star.atlas', Laya.Handler.create(this, this.onLoaded), null, Laya.loader.ATLAS); 
+        Laya.loader.load('res/atlas/star.atlas', Laya.Handler.create(this, this.onLoaded), null, Laya.loader.ATLAS);
 
-        Laya.timer.frameLoop(1,this,this.onLoop)；
     }
-    onLoaded():void{
-         this.gameInfo = new Background(); 
-         Laya.stage.addChild(this.gameInfo);
+    onLoaded(): void {
+        this.gameInfo = new Background();
+        Laya.stage.addChild(this.gameInfo);
 
-        this.roleBox = new Laya.Sprite();
-        Laya.stage.addChild(this.roleBox);
+        // this.roleBox = new Laya.Sprite();
 
-        this.hero = new Role();
-        this.roleBox.addChild(this.hero);
+        this.hero = new Laya.Sprite();
+        // this.roleBox.addChild(this.hero);
+
+        // let bound: Laya.Rectangle = this.gameInfo.getBounds();
+        // this.body.pos(-bound.width / 2, -bound.height / 2);
+
+        this.hero.loadImage("star/PurpleMonster.png");
+        Laya.stage.addChild(this.hero);
+
+        Laya.timer.frameLoop(10, this, this.onLoop);
     }
-    onLoop():void{
-        
+    onLoop(): void {
+        if (this.hero.y < 50) {
+            this.hero.y += 10;
+        } else {
+            this.hero.y -= 5;
+        }
+        console.log('y:', this.hero.y);
     }
-    restart():void {
+    restart(): void {
 
     }
 }
 
 
-    new Main();
+new Main();

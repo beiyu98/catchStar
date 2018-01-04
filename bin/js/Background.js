@@ -13,6 +13,7 @@ var Background = /** @class */ (function (_super) {
     function Background() {
         var _this = _super.call(this) || this;
         _this.startBtn.on(Laya.Event.CLICK, _this, _this.onStartBtnClick);
+        _this.start();
         return _this;
     }
     Background.prototype.onStartBtnClick = function (e) {

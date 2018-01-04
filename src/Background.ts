@@ -2,6 +2,7 @@ class Background extends ui.MainPageUI {
     constructor() {
         super();
         this.startBtn.on(Laya.Event.CLICK, this, this.onStartBtnClick);
+        this.start();
     }
     onStartBtnClick(e: Laya.Event): void {
         e.stopPropagation();

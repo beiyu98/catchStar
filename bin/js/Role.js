@@ -14,17 +14,17 @@ var Role = /** @class */ (function (_super) {
         return _super.call(this) || this;
     }
     Role.prototype.init = function () {
-        if (!Role.cached) {
-            Role.cached = true;
-            Laya.Animation.createFrames(["star/PurpleMonster.png"], 'PurpleMonster');
-        }
-        if (!this.body) {
-            this.body = new Laya.Animation();
-            this.addChild(this.body);
-        }
-        this.body.play(0, true, 'PurpleMonster');
-        var bound = this.body.getBounds();
-        this.body.pos(-bound.width / 2, -bound.height / 2);
+        // if (!Role.cached) {
+        //     Role.cached = true;
+        //     Laya.Animation.createFrames(["star/PurpleMonster.png"], 'PurpleMonster');
+        // }
+        // if (!this.body) {
+        //     this.body = new Laya.Animation();
+        //     this.addChild(this.body);
+        // }
+        // this.body.play(0, true, 'PurpleMonster');
+        // let bound: Laya.Rectangle = this.body.getBounds();
+        // this.body.pos(-bound.width / 2, -bound.height / 2);
     };
     Role.cached = false;
     return Role;
