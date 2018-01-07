@@ -4,16 +4,15 @@ import Dialog=laya.ui.Dialog;
 module ui {
     export class MainPageUI extends View {
 		public startBtn:Laya.Button;
+		public scoreLabel:Laya.Label;
 
-        public static  uiView:any ={"type":"View","props":{"width":1280,"height":720,"alpha":4},"child":[{"type":"Image","props":{"y":0,"x":0,"width":1280,"skin":"star/background.jpg","height":720}},{"type":"Image","props":{"y":464,"x":0,"width":1280,"skin":"star/ground.png","height":256}},{"type":"Button","props":{"y":375,"x":527,"width":200,"var":"startBtn","stateNum":1,"labelStrokeColor":"#27dd94","labelSize":24,"labelBold":true,"label":"开始","height":70}}]};
+        public static  uiView:any ={"type":"View","props":{"width":1280,"height":720,"alpha":4},"child":[{"type":"Image","props":{"y":0,"x":0,"width":1280,"skin":"star/background.jpg","height":720}},{"type":"Image","props":{"y":464,"x":0,"width":1280,"skin":"star/ground.png","height":256}},{"type":"Button","props":{"y":375,"x":527,"width":200,"var":"startBtn","stateNum":1,"labelStrokeColor":"#27dd94","labelSize":24,"labelBold":true,"label":"开始","height":70}},{"type":"Label","props":{"y":661,"x":33,"width":128,"var":"scoreLabel","text":"score:10","height":50,"fontSize":30,"color":"#3eec1d","bold":true}}]};
         constructor(){ super()}
         createChildren():void {
         
             super.createChildren();
             this.createView(ui.MainPageUI.uiView);
-
         }
-
     }
 }
 
@@ -35,8 +34,6 @@ module ui.test {
         
             super.createChildren();
             this.createView(ui.test.TestPageUI.uiView);
-
         }
-
     }
 }

@@ -21,7 +21,7 @@ var ui;
             _super.prototype.createChildren.call(this);
             this.createView(ui.MainPageUI.uiView);
         };
-        MainPageUI.uiView = { "type": "View", "props": { "width": 1280, "height": 720, "alpha": 4 }, "child": [{ "type": "Image", "props": { "y": 0, "x": 0, "width": 1280, "skin": "star/background.jpg", "height": 720 } }, { "type": "Image", "props": { "y": 464, "x": 0, "width": 1280, "skin": "star/ground.png", "height": 256 } }, { "type": "Button", "props": { "y": 375, "x": 527, "width": 200, "var": "startBtn", "stateNum": 1, "labelStrokeColor": "#27dd94", "labelSize": 24, "labelBold": true, "label": "开始", "height": 70 } }] };
+        MainPageUI.uiView = { "type": "View", "props": { "width": 1280, "height": 720, "alpha": 4 }, "child": [{ "type": "Image", "props": { "y": 0, "x": 0, "width": 1280, "skin": "star/background.jpg", "height": 720 } }, { "type": "Image", "props": { "y": 464, "x": 0, "width": 1280, "skin": "star/ground.png", "height": 256 } }, { "type": "Button", "props": { "y": 375, "x": 527, "width": 200, "var": "startBtn", "stateNum": 1, "labelStrokeColor": "#27dd94", "labelSize": 24, "labelBold": true, "label": "开始", "height": 70 } }, { "type": "Label", "props": { "y": 661, "x": 33, "width": 128, "var": "scoreLabel", "text": "score:10", "height": 50, "fontSize": 30, "color": "#3eec1d", "bold": true } }] };
         return MainPageUI;
     }(View));
     ui.MainPageUI = MainPageUI;

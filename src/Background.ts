@@ -3,6 +3,7 @@ class Background extends ui.MainPageUI {
         super();
         this.startBtn.on(Laya.Event.CLICK, this, this.onStartBtnClick);
         this.start();
+        this.scoreLabel.text = 'score: ' + 0;
     }
     onStartBtnClick(e: Laya.Event): void {
         e.stopPropagation();

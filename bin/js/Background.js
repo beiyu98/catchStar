@@ -14,6 +14,7 @@ var Background = /** @class */ (function (_super) {
         var _this = _super.call(this) || this;
         _this.startBtn.on(Laya.Event.CLICK, _this, _this.onStartBtnClick);
         _this.start();
+        _this.scoreLabel.text = 'score: ' + 0;
         return _this;
     }
     Background.prototype.onStartBtnClick = function (e) {

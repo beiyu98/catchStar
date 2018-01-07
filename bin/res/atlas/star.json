@@ -1,0 +1,93 @@
+{
+    "frames": {
+        "PurpleMonster.png": {
+            "frame": {
+                "h": 67,
+                "idx": 0,
+                "w": 78,
+                "x": 453,
+                "y": 363
+            },
+            "sourceSize": {
+                "h": 67,
+                "w": 78
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "background.jpg": {
+            "frame": {
+                "h": 362,
+                "idx": 0,
+                "w": 512,
+                "x": 0,
+                "y": 0
+            },
+            "sourceSize": {
+                "h": 362,
+                "w": 512
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "btn_play.png": {
+            "frame": {
+                "h": 57,
+                "idx": 0,
+                "w": 195,
+                "x": 257,
+                "y": 363
+            },
+            "sourceSize": {
+                "h": 57,
+                "w": 195
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "ground.png": {
+            "frame": {
+                "h": 256,
+                "idx": 0,
+                "w": 256,
+                "x": 0,
+                "y": 363
+            },
+            "sourceSize": {
+                "h": 256,
+                "w": 256
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        },
+        "star.png": {
+            "frame": {
+                "h": 71,
+                "idx": 0,
+                "w": 60,
+                "x": 257,
+                "y": 421
+            },
+            "sourceSize": {
+                "h": 71,
+                "w": 60
+            },
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0
+            }
+        }
+    },
+    "meta": {
+        "image": "star.png",
+        "prefix": "star/"
+    }
+}
