@@ -8,8 +8,11 @@ class Main {
 
     private score: number = 0;
 
-    private socket: Laya.Socket;
-    private byte: Laya.Byte;
+    private socket:SocketIO.Socket;
+
+    private socketIO:SocketIO.Client;
+
+    private host: string = 'ws://127.0.0.1:8360';
 
     constructor() {
         Laya.MiniAdpter.init();
@@ -19,19 +22,30 @@ class Main {
         Laya.stage.screenMode = 'horizontal';
         Laya.loader.load('res/atlas/star.atlas', Laya.Handler.create(this, this.onLoaded), null, Laya.loader.ATLAS);
 
-        this.byte = new Laya.Byte();
-        //这里我们采用小端
-        this.byte.endian = Laya.Byte.LITTLE_ENDIAN;
-        this.socket = new Laya.Socket();
-        //这里我们采用小端
-        this.socket.endian = Laya.Byte.LITTLE_ENDIAN;
-        //建立连接
-        this.socket.connectByUrl("ws://127.0.0.1:3000");
-        this.socket.on(Laya.Event.OPEN, this, this.openHandler);
-        this.socket.on(Laya.Event.MESSAGE, this, this.receiveHandler);
-        this.socket.on(Laya.Event.CLOSE, this, this.closeHandler);
-        this.socket.on(Laya.Event.ERROR, this, this.errorHandler);
-
+        this.socket = io(this.host);
+        this.socket.on('connect', () => {
+            console.log('connect:',this.socket.id);
+        });
+    }
+    private openHandler(event: any = null): void {
+        //正确建立连接；
+        console.log('openHandler:', event);
+        this.socket.send("hello world");//这是发送字符串的形式。
+    }
+    private receiveHandler(msg: any = null): void {
+        ///接收到数据触发函数
+        console.log('receiveHandler:', msg);
+    }
+    private closeHandler(e: any = null): void {
+        //关闭事件
+        console.log('closeHandler:', e);
+    }
+    private errorHandler(e: any = null): void {
+        //连接出错
+        console.log('errorHandler:', e);
+    }
+    private connectedHandler(e: any = null): void {
+        console.log('connectedHandler:', e);
     }
     onLoaded(): void {
         this.gameInfo = new Background();
@@ -116,23 +130,6 @@ class Main {
     }
     restart(): void {
 
-    }
-    private openHandler(event: any = null): void {
-        //正确建立连接；
-        console.log('openHandler:', event);
-        this.socket.send("hello world");//这是发送字符串的形式。
-    }
-    private receiveHandler(msg: any = null): void {
-        ///接收到数据触发函数
-        console.log('receiveHandler:', msg);
-    }
-    private closeHandler(e: any = null): void {
-        //关闭事件
-        console.log('closeHandler:', e);
-    }
-    private errorHandler(e: any = null): void {
-        //连接出错
-        console.log('errorHandler:', e);
     }
 }
 

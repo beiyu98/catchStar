@@ -1,25 +1,44 @@
 var Main = /** @class */ (function () {
     function Main() {
+        var _this = this;
         this.score = 0;
+        this.host = 'ws://127.0.0.1:8360';
         Laya.MiniAdpter.init();
         Laya.init(1280, 720, Laya.WebGL);
         Laya.stage.scaleMode = 'showall';
         Laya.stage.alignH = 'center';
         Laya.stage.screenMode = 'horizontal';
         Laya.loader.load('res/atlas/star.atlas', Laya.Handler.create(this, this.onLoaded), null, Laya.loader.ATLAS);
-        this.byte = new Laya.Byte();
-        //这里我们采用小端
-        this.byte.endian = Laya.Byte.LITTLE_ENDIAN;
-        this.socket = new Laya.Socket();
-        //这里我们采用小端
-        this.socket.endian = Laya.Byte.LITTLE_ENDIAN;
-        //建立连接
-        this.socket.connectByUrl("ws://127.0.0.1:3000");
-        this.socket.on(Laya.Event.OPEN, this, this.openHandler);
-        this.socket.on(Laya.Event.MESSAGE, this, this.receiveHandler);
-        this.socket.on(Laya.Event.CLOSE, this, this.closeHandler);
-        this.socket.on(Laya.Event.ERROR, this, this.errorHandler);
+        this.socket = io(this.host);
+        this.socket.on('connect', function () {
+            console.log('connect:', _this.socket.id);
+        });
     }
+    Main.prototype.openHandler = function (event) {
+        if (event === void 0) { event = null; }
+        //正确建立连接；
+        console.log('openHandler:', event);
+        this.socket.send("hello world"); //这是发送字符串的形式。
+    };
+    Main.prototype.receiveHandler = function (msg) {
+        if (msg === void 0) { msg = null; }
+        ///接收到数据触发函数
+        console.log('receiveHandler:', msg);
+    };
+    Main.prototype.closeHandler = function (e) {
+        if (e === void 0) { e = null; }
+        //关闭事件
+        console.log('closeHandler:', e);
+    };
+    Main.prototype.errorHandler = function (e) {
+        if (e === void 0) { e = null; }
+        //连接出错
+        console.log('errorHandler:', e);
+    };
+    Main.prototype.connectedHandler = function (e) {
+        if (e === void 0) { e = null; }
+        console.log('connectedHandler:', e);
+    };
     Main.prototype.onLoaded = function () {
         var _this = this;
         this.gameInfo = new Background();
@@ -95,27 +114,6 @@ var Main = /** @class */ (function () {
         console.log('y:', this.hero.y);
     };
     Main.prototype.restart = function () {
-    };
-    Main.prototype.openHandler = function (event) {
-        if (event === void 0) { event = null; }
-        //正确建立连接；
-        console.log('openHandler:', event);
-        this.socket.send("hello world"); //这是发送字符串的形式。
-    };
-    Main.prototype.receiveHandler = function (msg) {
-        if (msg === void 0) { msg = null; }
-        ///接收到数据触发函数
-        console.log('receiveHandler:', msg);
-    };
-    Main.prototype.closeHandler = function (e) {
-        if (e === void 0) { e = null; }
-        //关闭事件
-        console.log('closeHandler:', e);
-    };
-    Main.prototype.errorHandler = function (e) {
-        if (e === void 0) { e = null; }
-        //连接出错
-        console.log('errorHandler:', e);
     };
     return Main;
 }());
