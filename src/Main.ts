@@ -1,5 +1,6 @@
-class Main {
+import * as io from 'socket.io';
 
+class Main {
     private gameInfo: Background;
 
     private hero: Laya.Sprite;
@@ -8,9 +9,7 @@ class Main {
 
     private score: number = 0;
 
-    private socket:SocketIO.Socket;
-
-    private socketIO:SocketIO.Client;
+    private socket: any;
 
     private host: string = 'ws://127.0.0.1:8360';
 
@@ -24,7 +23,7 @@ class Main {
 
         this.socket = io(this.host);
         this.socket.on('connect', () => {
-            console.log('connect:',this.socket.id);
+            console.log('connect:', this.socket.id);
         });
     }
     private openHandler(event: any = null): void {

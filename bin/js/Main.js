@@ -1,3 +1,6 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var io = require("socket.io");
 var Main = /** @class */ (function () {
     function Main() {
         var _this = this;

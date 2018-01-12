@@ -1,0 +1,25 @@
+{
+  "name": "catchstar",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "bin": {
+    "catchstar": "game.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brucecodezone/catchStar.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/brucecodezone/catchStar/issues"
+  },
+  "homepage": "https://github.com/brucecodezone/catchStar#readme",
+  "dependencies": {
+    "@types/socket.io": "^1.4.31"
+  }
+}
